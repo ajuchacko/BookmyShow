@@ -20,9 +20,9 @@
           <h5 class="card-title">{{$cast->name}}</h5></a>
           <p class="card-text">{{str_limit($cast->details, 40)}}</p>
         </div>
-        <ul class="list-group list-group-flush">
+        {{-- <ul class="list-group list-group-flush">
           <li class="list-group-item">{{$cast->birth}}</li>
-        </ul>
+        </ul> --}}
         @if(Auth::user())
         <div class="card-body mx-auto">
           {{-- <a href="{{route('casts.edit', ['id' => $cast->id])}}" class="card-link">

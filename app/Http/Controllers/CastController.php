@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cast;
+use App\Movie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -13,6 +14,28 @@ class CastController extends Controller
   {
     $this->middleware('auth')->only('edit', 'update', 'store', 'create', 'destroy');
   }
+
+
+  public function search(Request $request)
+  {
+if($request->input('q') == '') {
+    $array = ['a', 'b', 'v', 'c', 'd'];
+    $rand = array_rand($array,2);
+     $movies = Movie::search($array[$rand[0]])->where('published_at', true)->get();
+     $casts = Cast::search($array[$rand[0]])->paginate(9);
+
+     return view('casts.search', compact('casts','movies'));
+   }
+     $movies = Movie::search(ucwords($request->input('q')))->where('published_at', true)->get();
+     // dd($movies);
+      $casts = Cast::search($request->input('q'))->paginate(9);
+      // $casts = $movies->merge($cast);
+      return view('casts.search', compact('movies', 'casts'));
+   }
+
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +43,7 @@ class CastController extends Controller
      */
     public function index()
     {
-        $casts = Cast::orderBy('name', 'asc')->paginate(12);
+        $casts = Cast::orderBy('name', 'asc')->paginate(6);
         return view('casts.index', compact('casts'));
     }
 

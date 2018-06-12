@@ -58,8 +58,11 @@ if(request()->has('stripeEmail')){
 
       $order = $reservation->complete($this->paymentGateway, request('payment_token'));
         }
+        if(request()->has('stripeEmail')){
       Mail::to($order->email)->send(new OrderSuccessful($order));
 
+      return redirect()->action('OrdersController@show', ['id' => $order['confirmation_number']]);
+}
       return response()->json($order, 201);
     } catch(PaymentFailedException $e) {
       $reservation->cancel();

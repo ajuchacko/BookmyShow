@@ -39,20 +39,27 @@
 
   </div>
   </div>
-<div class="row">
 
-  @foreach ($cast->movies->sortBy('name') as $movie)
+  <div class="container col-xs-12 col-sm-12 col-xl-12">
+
+    <h3 class="display-6">Filmogrphy</h3>
+    <hr class="my-2">
+
+  <div class="row">
+
+    @foreach ($cast->movies->sortBy('name') as $movie)
 
     <div class="card mr-5 mt-3" style="width: 18rem;">
-    <a href="{{route('movies.show', ['id' => $movie->id])}}"><img class="card-img-top"  src={{asset("casts/$cast->image")}} alt="{{$movie->name}}">
+      <a href="{{route('movies.show', ['id' => $movie->id])}}"><img class="card-img-top"  src={{asset("images/$movie->image")}} alt="{{$movie->name}}">
     <div class="card-body">
       <p class="card-text text-success">{{ucwords($movie->name)}}</p></a>
     </div>
     </div>
 
   @endforeach
-</div>
 
+    </div>
+  </div>
 </div>
 
   {{-- <p>{{ $cast->trailer }}</p> --}}

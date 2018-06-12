@@ -34,3 +34,4 @@ Route::post('checkout', 'CheckoutController@checkout')->name('checkout');
 Route::post('movies/{movie}/orders', 'MovieOrdersController@store');
 
 Route::get('orders/{confirmationNumber}', 'OrdersController@show');
+Route::get('search', 'CastController@search')->name('search');

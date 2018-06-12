@@ -2,11 +2,14 @@
 
 namespace App;
 
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use App\Exceptions\NotEnoughTicketsException;
 
 class Movie extends Model
 {
+  use Searchable;
+
     protected $guarded = [];
 
     protected $dates = ['release_date'];
@@ -29,14 +32,14 @@ class Movie extends Model
 
     public function getDurationAttribute($valueInSeconds)
    {
-     // $hours = number_format((float)($valueInSeconds / 3600), 4);
-     // $hour_array = explode('.', $hours);
-     // $minutes = number_format( ($hour_array[1] / 10000) * 60);
-     // return $hour_array[0].'hrs ' . $minutes.'m';
+     $hours = number_format((float)($valueInSeconds / 3600), 4);
+     $hour_array = explode('.', $hours);
+     $minutes = number_format( ($hour_array[1] / 10000) * 60);
+     return $hour_array[0].'hrs ' . $minutes.'m';
 
-     $hours = floor($valueInSeconds / 3600);
-     $minutes = floor(($valueInSeconds / 60) % 60);
-     $seconds = $valueInSeconds % 60;
+     // $hours = floor($valueInSeconds / 3600);
+     // $minutes = floor(($valueInSeconds / 60) % 60);
+     // $seconds = $valueInSeconds % 60;
 
        return $hours .'hrs ' . $minutes . 'm';
 
