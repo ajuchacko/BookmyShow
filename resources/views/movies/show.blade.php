@@ -15,11 +15,13 @@
       <div class="col-md-8 mt-4">
         <span class="badge badge-pill badge-light px-2 py-2">{{ ucwords($movie->language) }}</span>
         <span class="badge badge-pill badge-primary mb-3 ml-4 px-2 py-2">{{ ucwords($movie->genre) }}</span>
-        <p><b>{!! file_get_contents(asset('images/calendar.svg')) !!}Released: </b> {{ $movie->formatted_date }}</p>
-        <p><b>{!! file_get_contents(asset('images/clock.svg')) !!}Duration: </b>{{ $movie->duration }}</p>
+
+
+        <p><b><img src="{{asset('images/calendar.svg')}}">Released: </b> {{ $movie->formatted_date }}</p>
+        <p><b><img src="{{asset('images/clock.svg')}}">Duration: </b>{{ $movie->duration }}</p>
         {{-- <input type="text" id="price" v-model="price" v-text="{{$movie->ticket_price}}"> --}}
-        <p><b>{!! file_get_contents(asset('images/dollar.svg')) !!}Price: {{$movie->ticket_price_in_dollars}}</b> @{{price}}</p>
-        <p v-if="totalPrice != price"><b>{!! file_get_contents(asset('images/dollar.svg')) !!}Total price</b>: <span>@{{totalPrice}}</span></p>
+        <p><b><img src="{{asset('images/dollar.svg')}}">Price: {{$movie->ticket_price_in_dollars}}</b> @{{price}}</p>
+        <p v-if="totalPrice != price"><b><img src="{{asset('images/dollar.svg')}}">Total price</b>: <span>@{{totalPrice}}</span></p>
       </div>
     </div>
     <div class="container">
@@ -104,7 +106,7 @@
     </div>
 
     <div class="container mt-5">
-      <h3 class="display-6"><span>{!! file_get_contents(asset('images/video.svg')) !!}</span>Trailer</h3>
+      <h3 class="display-6"><span><img src="{{asset('images/video.svg')}}"</span>Trailer</h3>
       <hr class="my-2 pb-2">
       <div class="embed-responsive embed-responsive-16by9"  class="w-25 p-3">
   <iframe class="embed-responsive-item" src="{{$movie->trailer}}"></iframe>

@@ -15,4 +15,18 @@ class Cast extends Model
     {
       return $this->belongsToMany('App\Movie')->withTimestamps();
     }
+
+    /**
+     * Get the indexable data array for the model.
+     *
+     * @return array
+     */
+    public function toSearchableArray()
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            // 'details' => $this->details
+        ];
+    }
 }

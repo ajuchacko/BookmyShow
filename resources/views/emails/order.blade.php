@@ -12,7 +12,7 @@
 
       <p>Dear Customer,<br>
       You have Successfully ordered tickets({{$order->email}}). You have paid {{'$'.number_format($order->amount/100,2) }} in total.
-      You can get print of your tickets at this <a href="{{ url('orders/'.$order->confirmation_number) }}">link</a>.
+      You can get print of your tickets at this <a href="{{ url('orders/'.$order->confirmation_number) }}"><b>link</b></a>.
       Your order confirmation number is <b>{{$order->confirmation_number}}</b>. You're advised to bring the tickets at the venue and
       do not share order confirmation Number with anyone.Feel free to contact us if you face any kind of problems.<br><br><br>
       Bookmyshowteam,<br><br>

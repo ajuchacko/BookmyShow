@@ -26,6 +26,7 @@ class MovieController extends Controller
     {
       // dd(Auth::user());
     if(Auth::user()) {
+
       if(request('published') ) {
         $movies = Movie::published()->orderBy('name', 'asc')->paginate(6);
         return view('movies.index', ['movies' => $movies]);
@@ -34,6 +35,8 @@ class MovieController extends Controller
         return view('movies.index', ['movies' => $movies]);
       }
     }
+
+
         $movies = Movie::published()->orderBy('name', 'asc')->paginate(6);
         return view('movies.index', ['movies' => $movies]);
     }

@@ -20,7 +20,6 @@ Route::get('/', 'MovieController@index');
 Route::get('/home', 'MovieController@index');
 
 Auth::routes();
-
 // Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('movies', 'MovieController');
