@@ -1,5 +1,5 @@
 # bookmyshow
-Personal Project
+Personal Project done during Atees training.
 
 Purchase Tickets
 Admin Can do CRUD actions on Movies and Cast(people associated with movies) models.
